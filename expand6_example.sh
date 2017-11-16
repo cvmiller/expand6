@@ -15,17 +15,17 @@
 #
 #	by Craig Miller		19 Feb 2017
 
-VERSION=0.92
+VERSION=0.93
 
 # two IPv6 addresses which are represented differently, but should be the same
-addr1=2001:db8:123::5
+addr1=2001:db8:123::56
 addr2=2001:0db8:123:0::0:5
 
 
 source expand6.sh
 
 if [[ $(expand $addr1) == $(expand $addr2) ]]; then
-	echo "Addresses are the same"
+	echo "Addresses $addr1 == $addr2 are the same"
 else
-	echo "Addresss are different"
+	echo "Addresss $addr1 != $addr2  are different"
 fi

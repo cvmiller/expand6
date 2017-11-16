@@ -14,12 +14,29 @@
 #	IPv6 Address Expansion functions
 #
 #	by Craig Miller		19 Feb 2017
+#
+#	16 Nov 2017 v0.93 - added CLI functionality
 
-VERSION=0.92
+
+VERSION=0.93
 
 empty_addr="0000:0000:0000:0000:0000:0000:0000:0000"
 empty_addr_len=${#empty_addr}
 
+function usage {
+               echo "	$0 - expand compressed IPv6 addresss "
+	       echo "	e.g. $0 2001:db8:1:12:123::456 "
+	       echo "	"
+	       echo "	-t  self test"
+	       echo "	"
+	       echo " By Craig Miller - Version: $VERSION"
+	       exit 1
+           }
+
+if [ "$1" == "-h" ]; then
+	#call help
+	usage
+fi
 
 #
 #	Expands IPv6 quibble to 4 digits with leading zeros e.g. db8 -> 0db8
@@ -99,6 +116,17 @@ if [ "$1" == "-t" ]; then
 	# special cases
 	expand ::1
 	expand fd32:197d:3022:1101::
+	exit 1
 fi
 
+# allow script to be sourced (with no arguements)
+if [[ $1 != "" ]]; then
+	# validate input is an IPv6 address
+	if [[ $1 == *":"* ]]; then
+		expand $1
+	else
+		echo "ERROR: unregcognized IPv6 address $1"
+		exit 1
+	fi
+fi
 
