@@ -15,10 +15,10 @@
 #
 #	by Craig Miller		19 Feb 2017
 
-VERSION=0.93
+VERSION=0.94
 
 # two IPv6 addresses which are represented differently, but should be the same
-addr1=2001:db8:123::56
+addr1=2001:db8:123::5
 addr2=2001:0db8:123:0::0:5
 
 
