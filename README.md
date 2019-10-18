@@ -9,7 +9,7 @@ There are a few shell script implementations of expanding IPv6 addresses on the 
 
 
 ### IPv6 Addressing
-IPv6 introduces the concept of *compressing* and address by representing a long string of zeros with a double colon `::`. Although very useful for humans, the compressed format is more challenging for comparing addresses (e.g. should this address be added to my cache?) in a script. 
+IPv6 introduces the concept of *compressing* an address by representing a long string of zeros with a double colon `::`. Although very useful for humans, the compressed format is more challenging for comparing addresses (e.g. should this address be added to my cache?) in a script. 
 
 #### Run as a CLI
 
