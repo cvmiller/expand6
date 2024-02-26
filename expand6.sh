@@ -2,9 +2,9 @@
 
 ##################################################################################
 #
-#  Copyright (C) 2017 Craig Miller
+#  Copyright (C) 2017-2024 Craig Miller
 #
-#  See the file "LICENSE" for information on usage and redistribution
+#  See the file "LICENSE" for information on lib_usage and redistribution
 #  of this file, and for a DISCLAIMER OF ALL WARRANTIES.
 #  Distributed under GPLv2 License
 #
@@ -18,24 +18,24 @@
 #	16 Nov 2017 v0.93 - added CLI functionality
 
 
-VERSION=0.93
+LIB_VERSION=0.94
 
 empty_addr="0000:0000:0000:0000:0000:0000:0000:0000"
 empty_addr_len=${#empty_addr}
 
-function usage {
+function lib_usage {
                echo "	$0 - expand compressed IPv6 addresss "
 	       echo "	e.g. $0 2001:db8:1:12:123::456 "
 	       echo "	"
 	       echo "	-t  self test"
 	       echo "	"
-	       echo " By Craig Miller - Version: $VERSION"
+	       echo " By Craig Miller - Version: $LIB_VERSION"
 	       exit 1
            }
 
 if [ "$1" == "-h" ]; then
 	#call help
-	usage
+	lib_usage
 fi
 
 #
