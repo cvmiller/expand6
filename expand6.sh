@@ -18,7 +18,7 @@
 #	16 Nov 2017 v0.93 - added CLI functionality
 
 
-LIB_VERSION=0.94
+LIB_VERSION=0.96
 
 empty_addr="0000:0000:0000:0000:0000:0000:0000:0000"
 empty_addr_len=${#empty_addr}
@@ -33,7 +33,10 @@ function lib_usage {
 	       exit 1
            }
 
-if [ "$1" == "-h" ]; then
+# set default for $1 using bash strict mode
+help=${1:-}
+
+if [ "$help" == "-h" ]; then
 	#call help
 	lib_usage
 fi
@@ -106,7 +109,8 @@ function expand() {
 }
 
 # self test - call with '-t' parameter
-if [ "$1" == "-t" ]; then
+selftest=${1:-}
+if [ "$selftest" == "-t" ]; then
 	# add address examples to test
 	expand fd11::1d70:cf84:18ef:d056
 	expand 2a01::1
@@ -120,12 +124,13 @@ if [ "$1" == "-t" ]; then
 fi
 
 # allow script to be sourced (with no arguements)
-if [[ $1 != "" ]]; then
+emptyargs=${1:-}
+if [[ $emptyargs != "" ]]; then
 	# validate input is an IPv6 address
 	if [[ $1 == *":"* ]]; then
 		expand $1
 	else
-		echo "ERROR: unregcognized IPv6 address $1"
+		echo "ERROR: unregcognized IPv6 address $emptyargs"
 		exit 1
 	fi
 fi

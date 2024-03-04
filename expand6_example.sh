@@ -1,4 +1,5 @@
 #!/bin/bash
+set -uo pipefail
 
 ##################################################################################
 #
@@ -15,7 +16,7 @@
 #
 #	by Craig Miller		19 Feb 2017
 
-VERSION=0.94
+VERSION=0.96
 
 # two IPv6 addresses which are represented differently, but should be the same
 addr1=2001:db8:123::5
